@@ -15,6 +15,7 @@ router.post(
    ],
    async (req, res) => {
       try {
+         console.log(req.body)
          const errors = validationResult(req)
          if (!errors.isEmpty()) {
             return res.status(400).json({errors: errors.array(), message: 'Некорректные данные при регистрации'})
@@ -48,7 +49,10 @@ router.post('/login',
       try {
          const errors = validationResult(req)
          if (!errors.isEmpty()) {
-            return res.status(400).json({errors: errors.array(), message: 'Некорректные данные при входе в систему'})
+            return res.status(400).json({
+               errors: errors.array(), 
+               message: 'Некорректные данные при входе в систему'
+            })
          }
          
          const {email, password} = req.body         
