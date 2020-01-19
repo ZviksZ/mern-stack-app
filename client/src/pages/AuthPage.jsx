@@ -17,6 +17,10 @@ export const AuthPage = () => {
       clearError()
    }, [error, message, clearError])
 
+   useEffect(() => {
+      window.M.updateTextFields()
+   }, [])
+
    const changeHandler = e => {
       setForm({...form, [e.target.name]: e.target.value})
    }
@@ -52,6 +56,7 @@ export const AuthPage = () => {
                            type="text"
                            name="email"
                            className="yellow-input"
+                           value={form.email}
                         />
                         <label htmlFor="email">Email</label>
                      </div>
@@ -64,6 +69,7 @@ export const AuthPage = () => {
                            type="password"
                            name="password"
                            className="yellow-input"
+                           value={form.password}
                         />
                         <label htmlFor="password">Пароль</label>
                      </div>
